@@ -39,7 +39,10 @@ app.get('/api/hello', (req, res) => {
     console.log('HELLO HIT');
     res.json({ message: 'Hello from Express!' });
 });
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+exports.default = app;
 //# sourceMappingURL=server.js.map
