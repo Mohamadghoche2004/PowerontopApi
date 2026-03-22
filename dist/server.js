@@ -16,8 +16,9 @@ const db_1 = require("./config/db");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
+const corsOrigin = process.env.FRONTEND_URL ?? 'http://localhost:5173';
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173',
+    origin: corsOrigin,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
